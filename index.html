@@ -14,24 +14,31 @@
 <body>
 <!-- =========================================================== -->
 <!-- Header / Navbar                                            -->
-<!-- Keep classes BEM-styled; comments are in EN, UI text in DE -->
 <!-- =========================================================== -->
 <header class="site-header">
     <div class="container site-header__inner">
-        <a class="brand" href="#home" aria-label="V.Kortschak Startseite">
-            <img class="brand__logo" src="assets/img/logo/kortschak_complete.png" alt="V.Kortschak Heizung Sanitär Klima" />
+        <a class="brand" href="index.html#home" aria-label="V.Kortschak Startseite">
+            <img class="brand__logo" src="assets/img/logo/kortschak_complete_outline.png" alt="V.Kortschak Heizung Sanitär Klima" />
         </a>
 
+        <input class="nav-toggle" id="nav-toggle" type="checkbox" aria-hidden="true" />
+        <label class="burger" for="nav-toggle" aria-label="Menü öffnen/schließen">
+            <span></span><span></span><span></span>
+        </label>
+
         <nav class="main-nav" aria-label="Hauptnavigation">
-            <a class="main-nav__link" href="#home">Home</a>
-            <a class="main-nav__link" href="#leistungen">Heizung</a>
-            <a class="main-nav__link" href="#leistungen">PV</a>
-            <a class="main-nav__link" href="#leistungen">Bad</a>
-            <a class="main-nav__link" href="#leistungen">Sanitär</a>
-            <a class="main-nav__link" href="#leistungen">Klima</a>
-            <a class="main-nav__link" href="#ueber-uns">Über uns</a>
-            <a class="main-nav__link" href="#kontakt">Kontakt</a>
+            <a class="main-nav__link" href="index.html#home">Home</a>
+            <a class="main-nav__link" href="heizung.html">Heizung</a>
+            <a class="main-nav__link" href="pv.html">PV</a>
+            <a class="main-nav__link" href="bad.html">Bad</a>
+            <a class="main-nav__link" href="sanitaer.html">Sanitär</a>
+            <a class="main-nav__link" href="klima.html">Klima</a>
+            <a class="main-nav__link" href="ueber-uns.html">Über uns</a>
+            <a class="main-nav__link" href="index.html#kontakt">Kontakt</a>
         </nav>
+
+        <!-- Klickfläche außerhalb des Drawers zum Schließen -->
+        <label class="nav-scrim" for="nav-toggle" aria-hidden="true"></label>
 
         <div class="site-header__cta">
             <a class="button button--outline button--phone" href="tel:015757095588" aria-label="Anrufen">
@@ -43,20 +50,62 @@
 </header>
 
 <main id="home">
-    <!-- =================================== -->
-    <!-- Hero / Landing                       -->
-    <!-- Background image is a placeholder.   -->
-    <!-- Replace later with a real hero shot. -->
-    <!-- =================================== -->
+    <!-- ===================== -->
+    <!-- Hero / Landing       -->
+    <!-- ===================== -->
     <section class="hero" aria-label="Startbereich">
-        <div class="hero__media" role="img" aria-label="Haus mit moderner Haustechnik – Platzhalter"></div>
+        <div class="hero__media" role="img" aria-label="Haus mit moderner Haustechnik"></div>
         <div class="container hero__content">
             <p class="eyebrow">Herzlich willkommen: V.Kortschak in Nordstemmen</p>
-            <h1 class="hero__title">Kompetente, moderne & umweltschonende Haustechnik</h1>
-            <p class="hero__subtitle">Heizung, Photovoltaik, Lüftungsanlagen, Sanitär und Bad – zuverlässig aus einer Hand.</p>
+            <h1 class="hero__title">
+                Kompetente, moderne & umweltschonende<br />
+                Haustechnik
+            </h1>
+            <p class="hero__subtitle">
+                Heizung, Photovoltaik, Lüftungsanlagen, Sanitär und Bad – zuverlässig aus einer Hand.
+            </p>
             <div class="hero__actions">
                 <a class="button button--primary" href="#leistungen">Leistungen im Detail</a>
-                <a class="button button--ghost" href="#ueber-uns">Mehr über uns</a>
+                <a class="button button--ghost" href="ueber-uns.html">Mehr über uns</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================== -->
+    <!-- Blurbs / Value statements  -->
+    <!-- ========================== -->
+    <section class="section section--blurbs">
+        <div class="container">
+            <header class="section__header center">
+                <p class="eyebrow">V.Kortschak</p>
+                <h2 class="section__title">Das können wir für Sie tun</h2>
+            </header>
+
+            <div class="blurbs">
+                <article class="blurb">
+                    <div class="blurb__icon">💎</div>
+                    <h3 class="blurb__title">Kompetent & qualitativ</h3>
+                    <p class="blurb__text">Beratung, Planung, Modernisierung und Wartung – sauber und termintreu ausgeführt.</p>
+                </article>
+                <article class="blurb">
+                    <div class="blurb__icon">💡</div>
+                    <h3 class="blurb__title">Modern ist meist besser</h3>
+                    <p class="blurb__text">Neue Technik spart Energie und steigert Komfort – von Heizung bis Bad.</p>
+                </article>
+                <article class="blurb">
+                    <div class="blurb__icon">♻️</div>
+                    <h3 class="blurb__title">Umweltschonend & nachhaltig</h3>
+                    <p class="blurb__text">Effiziente Systeme und erneuerbare Energien für Ihr Zuhause.</p>
+                </article>
+                <article class="blurb">
+                    <div class="blurb__icon">💬</div>
+                    <h3 class="blurb__title">Erfahren & individuell</h3>
+                    <p class="blurb__text">Wir hören zu, beraten auf Augenhöhe und finden die passende Lösung.</p>
+                </article>
+            </div>
+
+            <div class="center">
+                <a class="button button--primary button--large" href="#kontakt">Jetzt beraten lassen</a>
             </div>
         </div>
     </section>
@@ -64,97 +113,81 @@
     <!-- ================== -->
     <!-- Leistungen (cards) -->
     <!-- ================== -->
-    <section id="leistungen" class="section section--tight" aria-label="Leistungen">
+    <section id="leistungen" class="section section--tight">
         <div class="container">
-            <header class="section__header">
-                <h2 class="section__title">Das können wir für Sie tun</h2>
-                <p class="section__lead">Planung, Installation und Wartung – wir begleiten Ihr Projekt effizient und termintreu.</p>
-            </header>
-
             <div class="cards">
-                <!-- Card: Heizung -->
+                <!-- Heizung -->
                 <article class="card" aria-label="Leistung Heizung">
                     <div class="card__media card__media--heizung" aria-hidden="true"></div>
                     <div class="card__body">
                         <h3 class="card__title">Heizung</h3>
-                        <p class="card__text">Wärmepumpen, Gas‑ und Hybridlösungen inkl. hydraulischem Abgleich und effizienter Regelungstechnik.</p>
-                        <a class="card__link" href="#kontakt">Beratung anfragen →</a>
+                        <p class="card__text">Wärmepumpen, Gas- und Hybridlösungen inkl. hydraulischem Abgleich.</p>
+                        <a class="card__link" href="heizung.html">→ Zu Heizung</a>
                     </div>
                 </article>
 
-                <!-- Card: Photovoltaik -->
+                <!-- PV -->
                 <article class="card" aria-label="Leistung Photovoltaik">
                     <div class="card__media card__media--pv" aria-hidden="true"></div>
                     <div class="card__body">
                         <h3 class="card__title">Photovoltaik</h3>
-                        <p class="card__text">PV‑Anlagen mit Speicher – sauberer Eigenstrom für Heizung, Haushalt und E‑Mobilität.</p>
-                        <a class="card__link" href="#kontakt">Beratung anfragen →</a>
+                        <p class="card__text">PV-Anlagen mit Speicher – sauberer Eigenstrom.</p>
+                        <a class="card__link" href="pv.html">→ Zu Photovoltaik</a>
                     </div>
                 </article>
 
-                <!-- Card: Bad -->
+                <!-- Bad -->
                 <article class="card" aria-label="Leistung Bad">
                     <div class="card__media card__media--bad" aria-hidden="true"></div>
                     <div class="card__body">
                         <h3 class="card__title">Bad</h3>
-                        <p class="card__text">Vom Gäste‑WC bis zum Wohlfühlbad – Planung, Fliesenkoordination und Montage aus einer Hand.</p>
-                        <a class="card__link" href="#kontakt">Beratung anfragen →</a>
+                        <p class="card__text">Vom Gäste-WC bis zum Wohlfühlbad – Planung & Montage.</p>
+                        <a class="card__link" href="bad.html">→ Zu Bad</a>
                     </div>
                 </article>
 
-                <!-- Card: Sanitär -->
+                <!-- Sanitär -->
                 <article class="card" aria-label="Leistung Sanitär">
                     <div class="card__media card__media--sanitaer" aria-hidden="true"></div>
                     <div class="card__body">
                         <h3 class="card__title">Sanitär</h3>
-                        <p class="card__text">Trinkwasserinstallationen, Enthärtung, Rohrsanierung und zeitgemäße Armaturen.</p>
-                        <a class="card__link" href="#kontakt">Beratung anfragen →</a>
+                        <p class="card__text">Trinkwasserinstallation, Enthärtung & Rohrsanierung.</p>
+                        <a class="card__link" href="sanitaer.html">→ Zu Sanitär</a>
                     </div>
                 </article>
 
-                <!-- Card: Klima -->
+                <!-- Klima -->
                 <article class="card" aria-label="Leistung Klima">
                     <div class="card__media card__media--klima" aria-hidden="true"></div>
                     <div class="card__body">
                         <h3 class="card__title">Klima</h3>
-                        <p class="card__text">Klimasplit‑ und Multisplit‑Anlagen – leise, effizient, perfekt für Bestandsgebäude.</p>
-                        <a class="card__link" href="#kontakt">Beratung anfragen →</a>
+                        <p class="card__text">Split- und Multisplit-Anlagen – leise & effizient.</p>
+                        <a class="card__link" href="klima.html">→ Zu Klima</a>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- ============== -->
-    <!-- Über uns Block -->
-    <!-- ============== -->
-    <section id="ueber-uns" class="section section--alt" aria-label="Über uns">
-        <div class="container grid grid--2cols">
-            <div class="media-block media-block--team" role="img" aria-label="Team vor Firmenfahrzeug"></div>
-            <div>
-                <h2>Über uns</h2>
-                <p>Wir sind <strong>V.Kortschak Heizung Sanitär Klima</strong> – ein inhabergeführter Fachbetrieb aus Nordstemmen. Seit vielen Jahren stehen wir für zuverlässige Beratung, fachgerechte Installation und nachhaltige Lösungen rund um moderne Haustechnik.</p>
-                <ul class="checklist">
-                    <li>Zuverlässige Terminierung & saubere Ausführung</li>
-                    <li>Transparente Angebote & feste Ansprechpartner</li>
-                    <li>Wartung & Service auch nach Projektabschluss</li>
-                </ul>
-                <div class="stack-xs">
-                    <a class="button button--primary" href="#kontakt">Unverbindlich anfragen</a>
-                    <a class="button button--ghost" href="#leistungen">Leistungen ansehen</a>
-                </div>
-            </div>
+    <!-- =============== -->
+    <!-- Notdienst Strip -->
+    <!-- =============== -->
+    <section class="notdienst" aria-label="Notdienst">
+        <div class="container center">
+            <h3>Notdienst</h3>
+            <p>Wir sind rund um die Uhr für Sie erreichbar!</p>
+            <a class="notdienst__phone" href="tel:015757095588">📞 01575&nbsp;7095588</a>
         </div>
     </section>
 
     <!-- ================== -->
-    <!-- Kontaktformular     -->
+    <!-- Kontakt (dark)     -->
     <!-- ================== -->
-    <section id="kontakt" class="section" aria-label="Kontaktformular">
+    <section id="kontakt" class="section section--contact" aria-label="Kontaktformular">
         <div class="container">
-            <header class="section__header">
+            <header class="section__header center">
                 <h2 class="section__title">Kontakt</h2>
-                <p class="section__lead">Sie haben eine Frage oder planen Ihr nächstes Projekt? Schreiben Sie uns – wir melden uns schnell.</p>
+                <p class="section__lead">Sie planen Ihr nächstes Projekt? Schreiben Sie uns – wir melden uns schnell.</p>
             </header>
 
             <form class="form" action="#" method="post">
@@ -168,7 +201,7 @@
                         <input class="form__control" name="telefon" required placeholder="01575 7095588" />
                     </label>
                     <label class="form__field">
-                        <span class="form__label">E‑Mail*</span>
+                        <span class="form__label">E-Mail*</span>
                         <input class="form__control" type="email" name="email" required placeholder="mail@beispiel.de" />
                     </label>
                 </div>
@@ -178,12 +211,18 @@
                     <textarea class="form__control" name="message" rows="6" required placeholder="Kurz Ihr Anliegen beschreiben…"></textarea>
                 </label>
 
-                <label class="form__checkbox">
-                    <input type="checkbox" required />
-                    <span>Ich stimme zu, dass meine Angaben zur Kontaktaufnahme gespeichert werden.</span>
-                </label>
-                <button class="button button--dark" type="submit">Nachricht absenden</button>
+                <div class="form__actions">
+                    <label class="form__checkbox">
+                        <input type="checkbox" required />
+                        <span>Ich stimme zu, dass meine Angaben zur Kontaktaufnahme gespeichert werden.</span>
+                    </label>
+                    <button class="button button--send" type="submit">Nachricht absenden</button>
+                </div>
             </form>
+
+            <div class="contact-callout">
+                Oder direkt anrufen:&nbsp;<a href="tel:015757095588">01575&nbsp;7095588</a>
+            </div>
         </div>
     </section>
 </main>
@@ -206,7 +245,7 @@
             <h3 class="footer__title">Kontaktdaten</h3>
             <p class="footer__text">
                 Telefon: <a href="tel:015757095588">01575&nbsp;7095588</a><br />
-                E‑Mail: <a href="mailto:info@kortschak.de">info@kortschak.de</a>
+                E-Mail: <a href="mailto:info@kortschak.de">info@kortschak.de</a>
             </p>
         </section>
 
@@ -230,7 +269,7 @@
     </div>
 </footer>
 
-<!-- Accessibility helper for screen readers only -->
+<!-- Accessibility helper -->
 <span class="sr-only" id="sr-only-root"></span>
 </body>
 </html>
