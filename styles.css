@@ -4,7 +4,6 @@
    Naming: BEM-ish (block__element--modifier)
    =================================================================== */
 
-
 /* ----------------------------- */
 /* Root tokens / color system    */
 /* ----------------------------- */
@@ -33,8 +32,10 @@
     --shadow-sm:0 2px 10px rgba(0,0,0,.06);
     --shadow-md:0 6px 20px rgba(0,0,0,.08);
     --container:min(1200px,92%);
-}
 
+    /* Hero image (set by modifiers) */
+    --hero-img:url('assets/img/hero_home.png');
+}
 
 /* -------------- */
 /* Base resets    */
@@ -54,7 +55,6 @@ img{ max-width:100%; height:auto; display:block }
 .center{ text-align:center }
 section, header, main, footer{ scroll-margin-top:120px }
 
-
 /* ---------------- */
 /* Header / Navbar  */
 /* ---------------- */
@@ -63,24 +63,13 @@ section, header, main, footer{ scroll-margin-top:120px }
     background:#fff; border-bottom:1px solid #eee; overflow:visible;
 }
 .site-header__inner{
-    display:flex; align-items:center; gap:56px;   /* kompakter als vorher */
+    display:flex; align-items:center; gap:56px;
     justify-content:flex-start;
     height:var(--header-h);
     flex-wrap:nowrap;
 }
 
-/* Call-to-action (Telefon) */
-.site-header__cta{ margin-left:24px }
-.site-header__cta .button--phone{
-    border:2px solid #e11d48; border-radius:14px; background:#fff; color:#e11d48;
-    font-weight:600; padding:8px 14px; box-shadow:0 4px 12px rgba(225,29,72,.15);
-    transition:all .2s ease;
-}
-.site-header__cta .button--phone:hover{
-    background:#fff5f7; box-shadow:0 6px 16px rgba(225,29,72,.25); transform:translateY(-1px);
-}
-
-/* Logo / feste Spalte links */
+/* Logo */
 .brand{
     position:relative; display:block;
     width:var(--brand-slot-w); min-width:var(--brand-slot-w);
@@ -94,7 +83,7 @@ section, header, main, footer{ scroll-margin-top:120px }
 /* Desktop-Navigation */
 .main-nav{
     display:flex; gap:18px; margin-left:auto; white-space:nowrap;
-    min-width:0; flex:1 1 auto; /* darf schrumpfen, aber nicht umbrechen */
+    min-width:0; flex:1 1 auto;
 }
 .main-nav__link{
     position:relative; padding:8px 8px; border-radius:10px;
@@ -109,6 +98,16 @@ section, header, main, footer{ scroll-margin-top:120px }
     font-weight:700;
 }
 
+/* Call-to-action (Telefon) */
+.site-header__cta{ margin-left:24px }
+.site-header__cta .button--phone{
+    border:2px solid #e11d48; border-radius:14px; background:#fff; color:#e11d48;
+    font-weight:600; padding:8px 14px; box-shadow:0 4px 12px rgba(225,29,72,.15);
+    transition:all .2s ease;
+}
+.site-header__cta .button--phone:hover{
+    background:#fff5f7; box-shadow:0 6px 16px rgba(225,29,72,.25); transform:translateY(-1px);
+}
 
 /* ------------------------- */
 /* Burger (CSS-only)         */
@@ -126,7 +125,6 @@ section, header, main, footer{ scroll-margin-top:120px }
     display:block; width:22px; height:2px; background:#111; border-radius:2px;
     transition:transform .15s ease, opacity .15s ease;
 }
-
 
 /* -------- */
 /* Buttons  */
@@ -150,31 +148,41 @@ section, header, main, footer{ scroll-margin-top:120px }
 .button--large{ padding:14px 18px; border-radius:14px }
 .button__icon{ line-height:1 }
 
-
 /* -------- */
 /* Hero     */
 /* -------- */
 .hero{
-    position:relative; min-height:clamp(520px,62vh,780px);
-    display:grid; place-items:center; overflow:hidden;
+    position:relative; display:grid; place-items:center; overflow:hidden;
+    min-height:clamp(520px,62vh,780px);
 }
+
 .hero__media{
     position:absolute; inset:0;
     background:
             linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25)),
-            url('assets/img/hero_home.png') no-repeat center / cover;
+            var(--hero-img) no-repeat center / cover;
 }
-/* weniger Crop auf sehr breiten, flachen Viewports */
-@media (min-aspect-ratio:16/9){
-    .hero__media{ background-size:100% auto; background-position:50% 55%; }
+@media (min-width:900px){
+    .hero__media{
+        background-size:100% auto;
+        background-position:50% 58%;
+    }
 }
-/* schräger Weiß-Schnitt */
+@media (min-width:1600px) and (min-aspect-ratio:16/9){
+    .hero__media{ background-size:105% auto; }
+}
+@media (max-aspect-ratio:4/3){
+    .hero__media{
+        background-size:cover;
+        background-position:50% 55%;
+    }
+}
 .hero::after{
     content:""; position:absolute; left:0; right:0; bottom:-1px; height:90px;
     background:#fff; clip-path:polygon(0 65%,100% 0,100% 100%,0 100%);
 }
 
-/* bessere Lesbarkeit: konsistente Textschatten im Hero */
+/* Hero content */
 .hero__content{ position:relative; color:#fff; text-align:left; padding:84px 0 }
 .eyebrow{ margin:0 0 8px; opacity:.95; letter-spacing:.2px; font-weight:600; text-shadow:0 2px 12px rgba(0,0,0,.45) }
 .hero__title{
@@ -191,6 +199,15 @@ section, header, main, footer{ scroll-margin-top:120px }
 .hero__actions .button{ min-width:200px; text-align:center }
 
 
+/* Hero image modifiers (set --hero-img) */
+.hero--home     { --hero-img:url('assets/img/hero_home.png'); }
+.hero--heizung  { --hero-img:url('assets/img/service_heizung_waermepumpe.png'); }
+.hero--pv       { --hero-img:url('assets/img/service_pv_dach.png'); }
+.hero--bad      { --hero-img:url('assets/img/service_bad_modern.png'); }
+.hero--sanitaer { --hero-img:url('assets/img/service_sanitaer_trinkwasser.png'); }
+.hero--klima    { --hero-img:url('assets/img/service_klima_split.png'); }
+.hero--ueberuns { --hero-img:url('assets/img/hero_home.png'); } /* Platzhalter */
+
 /* --------------- */
 /* Sections / grid */
 /* --------------- */
@@ -200,7 +217,6 @@ section, header, main, footer{ scroll-margin-top:120px }
 .section__header{ margin-bottom:24px }
 .section__title{ margin:0 0 6px; font-size:clamp(22px,3vw,34px) }
 .section__lead{ margin:0; color:var(--ink-500) }
-
 
 /* Value statements */
 .section--blurbs{ background:#fff; padding-top:52px }
@@ -213,16 +229,14 @@ section, header, main, footer{ scroll-margin-top:120px }
 .blurb__title{ margin:0; font-size:18px; font-weight:800 }
 .blurb__text{ margin:0; color:var(--ink-700) }
 
-
 /* Grid helpers */
 .grid{ display:grid; gap:28px }
 .grid--2cols{ grid-template-columns:1.15fr 1fr; align-items:center }
 .grid--3cols{ grid-template-columns:repeat(3,1fr) }
 
-
-/* ------------------------------ */
-/* Leistungen Cards (3 + 3)       */
-/* ------------------------------ */
+/* -------------------- */
+/* Leistungen Cards     */
+/* -------------------- */
 #leistungen{ background:var(--bg-50) }
 .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px }
 .card{
@@ -240,26 +254,52 @@ section, header, main, footer{ scroll-margin-top:120px }
 }
 .card__link:hover{ text-decoration:underline }
 
+/* -------------- */
 /* Service Images */
+/* -------------  */
 .card__media--heizung{
-    background:linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.00)),
-    url('assets/img/service_heizung_waermepumpe.png') center/cover no-repeat;
+    background:
+            linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.00)),
+            url('assets/img/service_heizung_waermepumpe.png') center/cover no-repeat;
 }
 .card__media--pv{
-    background:linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.00)),
-    url('assets/img/service_pv_dach.png') center/cover no-repeat;
+    background:
+            linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.00)),
+            url('assets/img/service_pv_dach.png') center/cover no-repeat;
 }
 .card__media--bad{
-    background:linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.00)),
-    url('assets/img/service_bad_modern.png') center/cover no-repeat;
+    background:
+            linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.00)),
+            url('assets/img/service_bad_modern.png') center/cover no-repeat;
 }
 .card__media--sanitaer{
-    background:linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.00)),
-    url('assets/img/service_sanitaer_trinkwasser.png') center/cover no-repeat;
+    background:
+            linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.00)),
+            url('assets/img/service_sanitaer_trinkwasser.png') center/cover no-repeat;
 }
 .card__media--klima{
-    background:linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.00)),
-    url('assets/img/service_klima_split.png') center/cover no-repeat;
+    background:
+            linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.00)),
+            url('assets/img/service_klima_split.png') center/cover no-repeat;
+}
+
+/* ------------------------------------- */
+/* Kontaktbereich */
+/* ------------------------------------- */
+.section--contact{
+    background:#0f2b33;
+    color:#fff;
+    padding:64px 0 88px;
+}
+.section--contact .section__lead{ color:#dbeafe; }
+.contact-callout{
+    margin-top:18px;
+    text-align:center;
+    color:#dbeafe;
+}
+.contact-callout a{
+    color:#fff;
+    font-weight:700;
 }
 
 
@@ -295,9 +335,8 @@ section, header, main, footer{ scroll-margin-top:120px }
 }
 .button--send:hover{ opacity:.96 }
 
-
 /* ------ */
-/* Notdienst + Kontakt dunkel */
+/* Notdienst + Footer */
 /* ------ */
 .notdienst{
     background:#fff; padding:42px 0 32px;
@@ -310,10 +349,6 @@ section, header, main, footer{ scroll-margin-top:120px }
     border:1px solid #e11d48; color:#e11d48; background:#fff; box-shadow:var(--shadow-sm);
 }
 
-
-/* ------ */
-/* Footer  */
-/* ------ */
 .site-footer{
     background:
             linear-gradient(0deg, rgba(255,255,255,.92), rgba(255,255,255,.92)),
@@ -331,12 +366,9 @@ section, header, main, footer{ scroll-margin-top:120px }
 .footer__links{ display:flex; gap:16px }
 .footer__links a{ color:var(--ink-500) }
 
-
 /* -------------------- */
 /* Responsive / Desktop Tuning  */
 /* -------------------- */
-
-/* sanftes Zusammenschieben vor der Mobile-Ansicht */
 @media (max-width:1400px){
     :root{ --brand-slot-w:300px; }
 }
@@ -344,38 +376,28 @@ section, header, main, footer{ scroll-margin-top:120px }
     :root{ --brand-slot-w:350px; }
     .main-nav{ gap:14px; }
     .main-nav__link{ padding:6px 6px; }
-
-    /* Phone-Pill: nur Hörer zeigen (Text ausblenden) */
     .site-header__cta .button--phone span:not(.button__icon){ display:none; }
-    .site-header__cta .button--phone{
-        padding:8px; gap:0; min-width:auto;
-    }
+    .site-header__cta .button--phone{ padding:8px; gap:0; min-width:auto; }
 }
 @media (max-width:1200px){
     :root{ --brand-slot-w:330px; }
     .main-nav{ gap:4px; }
 }
 
-
 /* -------------------- */
 /* Responsive / Burger  */
 /* -------------------- */
 @media (max-width:1000px){
-    /* Header fixiert + Platz schaffen */
     .site-header{ position:fixed; top:0; left:0; right:0; z-index:160 }
     body{ padding-top:var(--header-h) }
 
-    /* Phone-Pill sichtbar (rechts neben Burger) – wieder mit Text */
     .site-header__cta{
         display:flex; position:absolute; right:56px; top:50%;
         transform:translateY(-50%); z-index:210;
     }
-    .site-header__cta .button--phone{
-        padding:6px 10px; font-size:.9rem; gap:14px;
-    }
+    .site-header__cta .button--phone{ padding:6px 10px; font-size:.9rem; gap:14px; }
     .site-header__cta .button--phone span:not(.button__icon){ display:inline; }
 
-    /* Burger rechts */
     .burger{
         display:flex; position:absolute; right:12px; top:50%;
         transform:translateY(-50%); z-index:200;
@@ -384,7 +406,6 @@ section, header, main, footer{ scroll-margin-top:120px }
     .nav-toggle:checked + .burger span:nth-child(2){ opacity:0 }
     .nav-toggle:checked + .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45deg) }
 
-    /* Drawer */
     .main-nav{
         position:fixed; z-index:170; top:calc(var(--header-h) + 8px); right:10px; left:auto;
         width:clamp(220px,55vw,300px);
@@ -400,13 +421,12 @@ section, header, main, footer{ scroll-margin-top:120px }
 
     .site-header__inner:has(#nav-toggle:checked) .main-nav{ transform:translateX(0) }
 
-    /* Form-Actions auf kleinen Screens untereinander */
     .form__actions{ flex-direction:column; align-items:flex-start; gap:12px }
     .button--send{ width:100% }
     .form__row{ grid-template-columns:1fr }
 }
 
-/* Scrim / Abdunklung fürs Mobile-Menü (inkl. Header-Bereich) */
+/* Scrim fürs Mobile-Menü */
 .site-header__inner::before{
     content:""; position:fixed; inset:0;
     background:rgba(15,23,42,.45); backdrop-filter:blur(1px);
@@ -415,7 +435,6 @@ section, header, main, footer{ scroll-margin-top:120px }
 .site-header__inner:has(#nav-toggle:checked)::before{
     opacity:1; pointer-events:auto;
 }
-
 
 /* -------------------- */
 /* Responsive / Content */
