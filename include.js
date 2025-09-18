@@ -1,59 +1,66 @@
-(async function () {
+(function () {
     const PARTIALS = 'partials/';
 
-    function $(sel, root = document) { return root.querySelector(sel); }
-    function $all(sel, root = document) { return root.querySelectorAll(sel); }
+    function $(sel, root = document){ return root.querySelector(sel); }
+    function $all(sel, root = document){ return root.querySelectorAll(sel); }
 
-    async function inject(selectorOrKey, file) {
+    async function inject(selectorOrKey, file){
         const el =
             document.querySelector(selectorOrKey) ||
-            document.querySelector('[data-include="' + selectorOrKey.replace('#', '') + '"]');
+            document.querySelector('[data-include="' + selectorOrKey.replace('#','') + '"]');
         if (!el) return;
 
         const res = await fetch(PARTIALS + file, { cache: 'no-store' });
         el.innerHTML = await res.text();
 
-        if (file === 'header.html') {
+        if (file === 'header.html'){
             markActiveNav();
             wireMobileMenu();
         }
     }
 
-    function normalize(href) {
-        if (!href) return '';
-        return href
-            .replace(location.origin, '')   // Domain entfernen
-            .replace(/[#?].*$/, '')        // Hash & Query entfernen
-            .replace(/^\/+/, '')           // führende Slashes entfernen
+    /* ---------- ACTIVE NAV (robust für /route und /route.html) ---------- */
+    function stripDomainHashQuery(p){
+        return (p || '')
+            .replace(location.origin,'')
+            .replace(/[#?].*$/,'')
+            .replace(/\/+$/,'')
             .toLowerCase();
     }
+    function baseName(p){
+        const clean = stripDomainHashQuery(p);
+        const segs = clean.split('/').filter(Boolean);
+        const last = segs.length ? segs[segs.length - 1] : '';
+        // ohne Extension vergleichen (heizung === heizung.html)
+        const noExt = last.replace(/\.(html?|php|asp)$/,'');
+        return noExt || 'index';
+    }
 
-    function markActiveNav() {
-        let current = normalize(location.pathname);
-        if (current === '' || current === '/') current = 'index.html';
+    function markActiveNav(){
+        let current = baseName(location.pathname);
 
         const currentHash = location.hash || '';
 
         $all('.main-nav a').forEach(a => {
-            const full = a.getAttribute('href') || '';
-            const base = normalize(full.split('#')[0]);
+            const href = a.getAttribute('href') || '';
 
-            let isActive = base === current;
-
-            // Spezialfall: #kontakt auf der Startseite
-            if (current === 'index.html' && full === '#kontakt' && currentHash === '#kontakt') {
-                isActive = true;
+            // interner Anker auf Startseite (#kontakt)
+            if (href.startsWith('#')){
+                const isHomeAnchor = (current === 'index' && href === currentHash);
+                if (isHomeAnchor) a.setAttribute('data-active','true');
+                else a.removeAttribute('data-active');
+                return;
             }
 
-            if (isActive) {
-                a.setAttribute('data-active', 'true');
-            } else {
-                a.removeAttribute('data-active');
-            }
+            const target = baseName(href);
+            const isActive = target === current || (target === 'index' && current === '');
+            if (isActive) a.setAttribute('data-active','true');
+            else a.removeAttribute('data-active');
         });
     }
+    /* ------------------------------------------------------------------- */
 
-    function wireMobileMenu() {
+    function wireMobileMenu(){
         const toggle = $('#nav-toggle');
         const scrim = $('.nav-scrim');
         $all('.main-nav a').forEach(a => a.addEventListener('click', () => {
@@ -65,7 +72,9 @@
     }
 
     document.addEventListener('DOMContentLoaded', async () => {
-        await inject('[data-include="header"]', 'header.html');
-        await inject('[data-include="bottom"]', 'bottom.html');
+        await inject('[data-include="header"]','header.html');
+        await inject('[data-include="bottom"]','bottom.html');
+        // falls per History-API navigiert wird
+        window.addEventListener('popstate', markActiveNav);
     });
 })();
