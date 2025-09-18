@@ -61,7 +61,7 @@ section, header, main, footer{ scroll-margin-top:120px }
 }
 .site-header__inner{
     position:relative;
-    display:flex; align-items:center; gap:20px;
+    display:flex; align-items:center; gap:80px;
     height:var(--header-h);
 }
 

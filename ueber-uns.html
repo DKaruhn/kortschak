@@ -3,91 +3,159 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{SEITENTITEL} • V.Kortschak</title>
+    <meta name="description" content="Über uns • V.Kortschak – Heizung, Sanitär, Klima in Nordstemmen." />
+    <title>Über uns • V.Kortschak</title>
+
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="assets/img/logo/kortschak_icon.png" />
 </head>
 <body>
-<!-- reuse same header -->
-<!-- include from index.html (identisch) -->
-<header class="site-header">
-    <div class="container site-header__inner">
-        <a class="brand" href="index.html#home"><img class="brand__logo" src="assets/img/logo/kortschak_complete_outline.png" alt="V.Kortschak" /></a>
-        <nav class="main-nav" aria-label="Hauptnavigation">
-            <a class="main-nav__link" href="index.html#home">Home</a>
-            <a class="main-nav__link" href="heizung.html">Heizung</a>
-            <a class="main-nav__link" href="pv.html">PV</a>
-            <a class="main-nav__link" href="bad.html">Bad</a>
-            <a class="main-nav__link" href="sanitaer.html">Sanitär</a>
-            <a class="main-nav__link" href="klima.html">Klima</a>
-            <a class="main-nav__link" href="ueber-uns.html">Über uns</a>
-            <a class="main-nav__link" href="index.html#kontakt">Kontakt</a>
-        </nav>
-        <div class="site-header__cta">
-            <a class="button button--outline button--phone" href="tel:015757095588">📞 01575&nbsp;7095588</a>
-        </div>
-    </div>
-</header>
+
+<!-- gemeinsamer Header -->
+<div data-include="header"></div>
 
 <main>
-    <!-- Page hero -->
-    <section class="hero">
-        <div class="hero__media" style="background:
-        linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25)),
-        url('{HERO_BILD_PFAD}') center/cover no-repeat;"></div>
-        <div class="container hero__content">
-            <h1 class="hero__title">{SEITENÜBERSCHRIFT}</h1>
-            <p class="hero__subtitle">{KURZE_EINLEITUNG}</p>
+    <!-- Intro -->
+    <section class="section section--alt">
+        <div class="container">
+            <header class="section__header">
+                <h1 class="section__title">Über uns</h1>
+                <p class="section__lead">Seit Jahren für Nordstemmen und Umgebung im Einsatz – zuverlässig, sauber, persönlich.</p>
+            </header>
+
+            <div class="grid grid--2cols">
+                <div>
+                    <p>
+                        V.Kortschak steht für moderne und umweltschonende Haustechnik. Wir planen, installieren und betreuen
+                        Anlagen in den Bereichen <strong>Heizung</strong>, <strong>Sanitär</strong>, <strong>Klima</strong> und <strong>Photovoltaik</strong>.
+                        Von der ersten Idee über die Fördermittelberatung bis zur fertigen Abnahme – alles aus einer Hand.
+                    </p>
+                    <p>
+                        Unser Team arbeitet sauber, termintreu und auf Augenhöhe mit unseren Kundinnen und Kunden. Wir setzen
+                        auf Markenprodukte, klare Kommunikation und smarte Technik, die wirklich zu Ihrem Zuhause passt.
+                    </p>
+                    <a class="button button--primary" href="#kontakt">Beratung anfragen</a>
+                </div>
+
+                <div>
+                    <img src="assets/img/hero_home.png" alt="V.Kortschak – Moderne Haustechnik" />
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Content section placeholder -->
+    <!-- Werte / Warum wir -->
     <section class="section">
         <div class="container">
-            <h2>Leistungen im Überblick</h2>
-            <p>Platzhaltertext: Kurze Beschreibung der Leistungen und Vorteile für Kund:innen. Inhalte folgen.</p>
+            <header class="section__header center">
+                <h2 class="section__title">Wofür wir stehen</h2>
+            </header>
+
+            <div class="blurbs">
+                <article class="blurb">
+                    <div class="blurb__icon">🤝</div>
+                    <h3 class="blurb__title">Beratung auf Augenhöhe</h3>
+                    <p class="blurb__text">Ehrliche Empfehlungen, transparente Angebote und feste Ansprechpartner.</p>
+                </article>
+
+                <article class="blurb">
+                    <div class="blurb__icon">🧰</div>
+                    <h3 class="blurb__title">Saubere Ausführung</h3>
+                    <p class="blurb__text">Sorgfältige Montage, Schutz der Arbeitsbereiche und termintreue Übergabe.</p>
+                </article>
+
+                <article class="blurb">
+                    <div class="blurb__icon">♻️</div>
+                    <h3 class="blurb__title">Nachhaltige Technik</h3>
+                    <p class="blurb__text">Energieeffiziente Systeme, die Betriebskosten und CO₂ senken.</p>
+                </article>
+
+                <article class="blurb">
+                    <div class="blurb__icon">📞</div>
+                    <h3 class="blurb__title">Erreichbarkeit</h3>
+                    <p class="blurb__text">Kurze Wege, schnelle Hilfe – inklusive Notdienst.</p>
+                </article>
+            </div>
         </div>
     </section>
 
-    <!-- Notdienst + Kontakt + Footer (identisch zu Home) -->
-    <section class="notdienst">
-        <div class="container center">
-            <h3>Notdienst</h3>
-            <p>Wir sind rund um die Uhr für Sie erreichbar!</p>
-            <a class="notdienst__phone" href="tel:015757095588">📞 01575&nbsp;7095588</a>
-        </div>
-    </section>
-
-    <section class="section section--contact" id="kontakt">
+    <!-- Team (Platzhalter) -->
+    <section class="section section--alt">
         <div class="container">
             <header class="section__header center">
-                <h2 class="section__title">Kontakt</h2>
-                <p class="section__lead">Schreiben Sie uns – wir melden uns zeitnah.</p>
+                <h2 class="section__title">Unser Team</h2>
+                <p class="section__lead">Engagiert, freundlich, fachkundig – lernen Sie uns kennen.</p>
             </header>
-            <!-- reuse same form from index.html -->
-            <form class="form" action="#" method="post">
-                <div class="form__row">
-                    <label class="form__field"><span class="form__label">Name*</span><input class="form__control" required /></label>
-                    <label class="form__field"><span class="form__label">Telefon*</span><input class="form__control" required /></label>
-                    <label class="form__field"><span class="form__label">E-Mail*</span><input class="form__control" type="email" required /></label>
+
+            <div class="cards">
+                <article class="card">
+                    <div class="card__media" style="background:linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,0)), url('assets/img/service_heizung_waermepumpe.png') center/cover no-repeat;"></div>
+                    <div class="card__body">
+                        <h3 class="card__title">Vaceslov Kortschak</h3>
+                        <p class="card__text">Inhaber • Meister SHK</p>
+                        <p class="card__text">Beratung, Planung, Qualitätssicherung.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card__media" style="background:linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,0)), url('assets/img/service_bad_modern.png') center/cover no-repeat;"></div>
+                    <div class="card__body">
+                        <h3 class="card__title">Anna Beispiel</h3>
+                        <p class="card__text">Büro & Disposition</p>
+                        <p class="card__text">Terminabsprachen, Material & Einsatzplanung.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card__media" style="background:linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,0)), url('assets/img/service_klima_split.png') center/cover no-repeat;"></div>
+                    <div class="card__body">
+                        <h3 class="card__title">Tim Mustermann</h3>
+                        <p class="card__text">Anlagenmechaniker SHK</p>
+                        <p class="card__text">Montage, Inbetriebnahme & Wartung.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fakten / Partner (Platzhalter) -->
+    <section class="section">
+        <div class="container">
+            <header class="section__header center">
+                <h2 class="section__title">Fakten & Partner</h2>
+            </header>
+
+            <div class="grid grid--2cols">
+                <div>
+                    <ul>
+                        <li><strong>Standort:</strong> Nordstemmen • Hasenkamp 16</li>
+                        <li><strong>Gründung:</strong> Platzhalter-Jahr</li>
+                        <li><strong>Schwerpunkte:</strong> Wärmepumpen, PV, Sanitär, Klima</li>
+                        <li><strong>Kundschaft:</strong> Privat, kleine Gewerbe</li>
+                    </ul>
                 </div>
-                <label class="form__field"><span class="form__label">Ihre Nachricht*</span><textarea class="form__control" rows="6" required></textarea></label>
-                <label class="form__checkbox"><input type="checkbox" required /> <span>Ich stimme zu, dass meine Angaben gespeichert werden.</span></label>
-                <button class="button button--dark" type="submit">Nachricht absenden</button>
-            </form>
-            <div class="contact-callout">Oder direkt anrufen:&nbsp;<a href="tel:015757095588">01575&nbsp;7095588</a></div>
+                <div>
+                    <p><strong>Partner & Marken (Auswahl):</strong></p>
+                    <ul>
+                        <li>Wärmepumpen-/Kesselhersteller (Platzhalter)</li>
+                        <li>PV-Wechselrichter & Speicher (Platzhalter)</li>
+                        <li>Sanitär & Armaturen (Platzhalter)</li>
+                        <li>Klimatechnik (Platzhalter)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="center" style="margin-top:20px">
+                <a class="button button--primary button--large" href="#kontakt">Jetzt Kontakt aufnehmen</a>
+            </div>
         </div>
     </section>
 </main>
 
-<footer class="site-footer">
-    <!-- reuse same footer from index.html -->
-    <div class="container grid grid--3cols">
-        <section><h3 class="footer__title">Adresse</h3><address class="footer__text">Kortschak Vaceslov<br>Hasenkamp 16<br>31171 Nordstemmen</address></section>
-        <section><h3 class="footer__title">Kontaktdaten</h3><p class="footer__text">Telefon: <a href="tel:015757095588">01575 7095588</a><br>E-Mail: <a href="mailto:info@kortschak.de">info@kortschak.de</a></p></section>
-        <section><h3 class="footer__title">Öffnungszeiten</h3><p class="footer__text">Mo–Do 08:00–16:00 Uhr<br>Fr 08:00–14:00 Uhr</p></section>
-    </div>
-    <div class="footer__legal"><div class="container footer__legal-inner"><span>© V.Kortschak – Alle Rechte vorbehalten</span><nav class="footer__links"><a href="#">Impressum</a><a href="#">Datenschutz</a></nav></div></div>
-</footer>
+<!-- gemeinsamer Unterbereich (Notdienst + Kontakt + Footer) -->
+<div data-include="bottom"></div>
+
+<!-- Partials laden -->
+<script src="include.js" defer></script>
 </body>
 </html>

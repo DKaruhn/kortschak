@@ -3,91 +3,42 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{SEITENTITEL} • V.Kortschak</title>
+    <meta name="description" content="Sanitär • Trinkwasserinstallation, Enthärtung & Rohrsanierung." />
+    <title>Sanitär • V.Kortschak</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="assets/img/logo/kortschak_icon.png" />
 </head>
 <body>
-<!-- reuse same header -->
-<!-- include from index.html (identisch) -->
-<header class="site-header">
-    <div class="container site-header__inner">
-        <a class="brand" href="index.html#home"><img class="brand__logo" src="assets/img/logo/kortschak_complete_outline.png" alt="V.Kortschak" /></a>
-        <nav class="main-nav" aria-label="Hauptnavigation">
-            <a class="main-nav__link" href="index.html#home">Home</a>
-            <a class="main-nav__link" href="heizung.html">Heizung</a>
-            <a class="main-nav__link" href="pv.html">PV</a>
-            <a class="main-nav__link" href="bad.html">Bad</a>
-            <a class="main-nav__link" href="sanitaer.html">Sanitär</a>
-            <a class="main-nav__link" href="klima.html">Klima</a>
-            <a class="main-nav__link" href="ueber-uns.html">Über uns</a>
-            <a class="main-nav__link" href="index.html#kontakt">Kontakt</a>
-        </nav>
-        <div class="site-header__cta">
-            <a class="button button--outline button--phone" href="tel:015757095588">📞 01575&nbsp;7095588</a>
-        </div>
-    </div>
-</header>
+<div data-include="header"></div>
 
 <main>
-    <!-- Page hero -->
-    <section class="hero">
-        <div class="hero__media" style="background:
-        linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25)),
-        url('{HERO_BILD_PFAD}') center/cover no-repeat;"></div>
-        <div class="container hero__content">
-            <h1 class="hero__title">{SEITENÜBERSCHRIFT}</h1>
-            <p class="hero__subtitle">{KURZE_EINLEITUNG}</p>
-        </div>
-    </section>
-
-    <!-- Content section placeholder -->
     <section class="section">
         <div class="container">
-            <h2>Leistungen im Überblick</h2>
-            <p>Platzhaltertext: Kurze Beschreibung der Leistungen und Vorteile für Kund:innen. Inhalte folgen.</p>
-        </div>
-    </section>
-
-    <!-- Notdienst + Kontakt + Footer (identisch zu Home) -->
-    <section class="notdienst">
-        <div class="container center">
-            <h3>Notdienst</h3>
-            <p>Wir sind rund um die Uhr für Sie erreichbar!</p>
-            <a class="notdienst__phone" href="tel:015757095588">📞 01575&nbsp;7095588</a>
-        </div>
-    </section>
-
-    <section class="section section--contact" id="kontakt">
-        <div class="container">
-            <header class="section__header center">
-                <h2 class="section__title">Kontakt</h2>
-                <p class="section__lead">Schreiben Sie uns – wir melden uns zeitnah.</p>
+            <header class="section__header">
+                <h1 class="section__title">Sanitär</h1>
+                <p class="section__lead">Sicheres Trinkwasser, saubere Leitungen und moderne Technik.</p>
             </header>
-            <!-- reuse same form from index.html -->
-            <form class="form" action="#" method="post">
-                <div class="form__row">
-                    <label class="form__field"><span class="form__label">Name*</span><input class="form__control" required /></label>
-                    <label class="form__field"><span class="form__label">Telefon*</span><input class="form__control" required /></label>
-                    <label class="form__field"><span class="form__label">E-Mail*</span><input class="form__control" type="email" required /></label>
+
+            <div class="grid grid--2cols">
+                <div>
+                    <p>Wir kümmern uns um Neuinstallation, Austausch und Instandsetzung Ihrer Sanitärtechnik.</p>
+                    <ul>
+                        <li>Trinkwasserinstallation & Filtertechnik</li>
+                        <li>Enthärtungsanlagen</li>
+                        <li>Leckageortung & Rohrsanierung</li>
+                        <li>Regenwasser-Nutzung</li>
+                    </ul>
+                    <a class="button button--primary" href="#kontakt">Sanitärservice anfragen</a>
                 </div>
-                <label class="form__field"><span class="form__label">Ihre Nachricht*</span><textarea class="form__control" rows="6" required></textarea></label>
-                <label class="form__checkbox"><input type="checkbox" required /> <span>Ich stimme zu, dass meine Angaben gespeichert werden.</span></label>
-                <button class="button button--dark" type="submit">Nachricht absenden</button>
-            </form>
-            <div class="contact-callout">Oder direkt anrufen:&nbsp;<a href="tel:015757095588">01575&nbsp;7095588</a></div>
+                <div>
+                    <img src="assets/img/service_sanitaer_trinkwasser.png" alt="Sanitärinstallation Trinkwasser" />
+                </div>
+            </div>
         </div>
     </section>
 </main>
 
-<footer class="site-footer">
-    <!-- reuse same footer from index.html -->
-    <div class="container grid grid--3cols">
-        <section><h3 class="footer__title">Adresse</h3><address class="footer__text">Kortschak Vaceslov<br>Hasenkamp 16<br>31171 Nordstemmen</address></section>
-        <section><h3 class="footer__title">Kontaktdaten</h3><p class="footer__text">Telefon: <a href="tel:015757095588">01575 7095588</a><br>E-Mail: <a href="mailto:info@kortschak.de">info@kortschak.de</a></p></section>
-        <section><h3 class="footer__title">Öffnungszeiten</h3><p class="footer__text">Mo–Do 08:00–16:00 Uhr<br>Fr 08:00–14:00 Uhr</p></section>
-    </div>
-    <div class="footer__legal"><div class="container footer__legal-inner"><span>© V.Kortschak – Alle Rechte vorbehalten</span><nav class="footer__links"><a href="#">Impressum</a><a href="#">Datenschutz</a></nav></div></div>
-</footer>
+<div data-include="bottom"></div>
+<script src="include.js" defer></script>
 </body>
 </html>
