@@ -22,9 +22,9 @@
     function normalize(href) {
         if (!href) return '';
         return href
-            .replace(location.origin, '')
-            .replace(/[#?].*$/, '')
-            .replace(/^\/+/, '')
+            .replace(location.origin, '')   // Domain entfernen
+            .replace(/[#?].*$/, '')        // Hash & Query entfernen
+            .replace(/^\/+/, '')           // führende Slashes entfernen
             .toLowerCase();
     }
 
@@ -32,18 +32,24 @@
         let current = normalize(location.pathname);
         if (current === '' || current === '/') current = 'index.html';
 
+        const currentHash = location.hash || '';
+
         $all('.main-nav a').forEach(a => {
             const full = a.getAttribute('href') || '';
-
-            if (full.trim().startsWith('#')) {
-                a.removeAttribute('aria-current');
-                return;
-            }
             const base = normalize(full.split('#')[0]);
-            const isActive = base === current;
 
-            if (isActive) a.setAttribute('aria-current', 'page');
-            else a.removeAttribute('aria-current');
+            let isActive = base === current;
+
+            // Spezialfall: #kontakt auf der Startseite
+            if (current === 'index.html' && full === '#kontakt' && currentHash === '#kontakt') {
+                isActive = true;
+            }
+
+            if (isActive) {
+                a.setAttribute('data-active', 'true');
+            } else {
+                a.removeAttribute('data-active');
+            }
         });
     }
 

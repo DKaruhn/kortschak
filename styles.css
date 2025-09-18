@@ -59,11 +59,30 @@ section, header, main, footer{ scroll-margin-top:120px }
     position:sticky; top:0; z-index:50;
     background:#fff; border-bottom:1px solid #eee; overflow:visible;
 }
-.site-header__inner{
-    position:relative;
-    display:flex; align-items:center; gap:80px;
-    height:var(--header-h);
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: var(--header-h);
 }
+.site-header__cta .button--phone {
+    border: 2px solid #e11d48;
+    border-radius: 14px;
+    background: #fff;
+    color: #e11d48;
+    font-weight: 600;
+    padding: 8px 14px;
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.15);
+    transition: all 0.2s ease;
+}
+
+.site-header__cta .button--phone:hover {
+    background: #fff5f7;
+    box-shadow: 0 6px 16px rgba(225, 29, 72, 0.25);
+    transform: translateY(-1px);
+}
+
 
 .brand{
     position:relative; display:block;
@@ -89,9 +108,13 @@ section, header, main, footer{ scroll-margin-top:120px }
 .main-nav__link:focus{ color:var(--brand-red); background:var(--bg-25) }
 .main-nav__link[aria-current="page"],
 .main-nav__link--active,
-.main-nav__link[data-active="true"]{ color:var(--brand-red) }
+.main-nav__link[data-active="true"] {
+    color: var(--ink-900);
+    font-weight: 700;
+}
 
-.site-header__cta{ margin-left:8px }
+
+.site-header__cta{ margin-left:24px }
 
 /* ------------------------- */
 /* Burger (CSS-only)         */
@@ -338,7 +361,19 @@ section, header, main, footer{ scroll-margin-top:120px }
     }
     body{ padding-top:var(--header-h); }
 
-    .site-header__cta{ display:none }
+    .site-header__cta {
+        display: flex;
+        position: absolute;
+        right: 60px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 210;
+    }
+    .site-header__cta .button--phone {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+
 
     .burger{
         display:flex;
