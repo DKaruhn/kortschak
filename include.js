@@ -1,36 +1,65 @@
-(() => {
-    async function inject(whereSelector, url) {
-        const slot = document.querySelector(whereSelector);
-        if (!slot) return;
-        const res = await fetch(url, {cache: 'no-cache'});
-        slot.outerHTML = await res.text();
+(async function () {
+    const PARTIALS = 'partials/';
+
+    function $(sel, root = document) { return root.querySelector(sel); }
+    function $all(sel, root = document) { return root.querySelectorAll(sel); }
+
+    async function inject(selectorOrKey, file) {
+        const el =
+            document.querySelector(selectorOrKey) ||
+            document.querySelector('[data-include="' + selectorOrKey.replace('#', '') + '"]');
+        if (!el) return;
+
+        const res = await fetch(PARTIALS + file, { cache: 'no-store' });
+        el.innerHTML = await res.text();
+
+        if (file === 'header.html') {
+            markActiveNav();
+            wireMobileMenu();
+        }
+    }
+
+    function normalize(href) {
+        if (!href) return '';
+        return href
+            .replace(location.origin, '')
+            .replace(/[#?].*$/, '')
+            .replace(/^\/+/, '')
+            .toLowerCase();
     }
 
     function markActiveNav() {
-        const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-        const links = document.querySelectorAll('.main-nav__link');
-        links.forEach(a => {
-            const href = (a.getAttribute('href') || '').toLowerCase();
-            const file = href.split('/').pop().split('#')[0] || '';
-            const isHome = path === 'index.html' && href.includes('#home');
-            if ((file && file === path) || isHome) {
-                a.setAttribute('aria-current', 'page');
-                a.classList.add('main-nav__link--active');
+        let current = normalize(location.pathname);
+        if (current === '' || current === '/') current = 'index.html';
+
+        $all('.main-nav a').forEach(a => {
+            const full = a.getAttribute('href') || '';
+
+            if (full.trim().startsWith('#')) {
+                a.removeAttribute('aria-current');
+                return;
             }
-            // Mobile: Menü schließen beim Klicken
-            a.addEventListener('click', () => {
-                const t = document.getElementById('nav-toggle');
-                if (t) t.checked = false;
-            });
+            const base = normalize(full.split('#')[0]);
+            const isActive = base === current;
+
+            if (isActive) a.setAttribute('aria-current', 'page');
+            else a.removeAttribute('aria-current');
+        });
+    }
+
+    function wireMobileMenu() {
+        const toggle = $('#nav-toggle');
+        const scrim = $('.nav-scrim');
+        $all('.main-nav a').forEach(a => a.addEventListener('click', () => {
+            if (toggle) toggle.checked = false;
+        }));
+        if (scrim) scrim.addEventListener('click', () => {
+            if (toggle) toggle.checked = false;
         });
     }
 
     document.addEventListener('DOMContentLoaded', async () => {
-        // Header zuerst, dann Active-State setzen
-        await inject('[data-include="header"]', 'partials/header.html');
-        markActiveNav();
-
-        // Unterer Block (Notdienst + Kontakt + Footer)
-        await inject('[data-include="bottom"]', 'partials/bottom.html');
+        await inject('[data-include="header"]', 'header.html');
+        await inject('[data-include="bottom"]', 'bottom.html');
     });
 })();
