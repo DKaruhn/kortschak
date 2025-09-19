@@ -522,30 +522,10 @@ html.is-ready .hero__content > *:nth-child(4){ animation-delay:2.8s; }
     .cards{ grid-template-columns:repeat(2,1fr) }
     .grid--2cols{ grid-template-columns:1fr }
 }
-
-/* Hero-Mobile-Fix */
-@media (max-width:768px){
-    .hero {
-        min-height: 100vh; /* füllt den ganzen Screen */
-    }
-    .hero__media {
-        background-size: cover;
-        background-position: center;
-    }
-    .hero__content {
-        text-align: center;
-        padding: 60px 20px;
-    }
-    .hero__actions {
-        justify-content: center;
-    }
-}
-
 @media (max-width:520px){
     .cards{ grid-template-columns:1fr }
     .hero__title{ font-size:clamp(26px,6vw,36px) }
 }
-
 
 /* -------------------- */
 /* Extra Mobile Fixes   */
