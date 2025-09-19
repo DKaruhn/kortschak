@@ -440,10 +440,10 @@ html.is-ready .hero__content > *:nth-child(4){ animation-delay:2.8s; }
 .footer__legal{ border-top:1px dashed #e2e8f0; margin-top:24px }
 .footer__legal-inner{
     display:flex; justify-content:space-between; align-items:center;
-    padding:14px 0; color:#ink-500;
+    padding:14px 0; color:var(--ink-500);
 }
 .footer__links{ display:flex; gap:16px }
-.footer__links a{ color:#ink-500 }
+.footer__links a{ color:var(--ink-500) }
 
 /* -------------------- */
 /* Responsive / Desktop Tuning  */
@@ -525,47 +525,6 @@ html.is-ready .hero__content > *:nth-child(4){ animation-delay:2.8s; }
 @media (max-width:520px){
     .cards{ grid-template-columns:1fr }
     .hero__title{ font-size:clamp(26px,6vw,36px) }
-}
-
-/* -------------------- */
-/* Extra Mobile Fixes   */
-/* -------------------- */
-@media (max-width:1000px){
-    /* Logo flexibler */
-    :root { --brand-slot-w: 180px; }
-    .brand {
-        flex: 0 1 auto;
-        min-width: 120px;
-        width: auto;
-    }
-    .brand__logo {
-        max-height: 64px;
-        top: 0;
-        height: auto;
-    }
-
-    /* Header Inhalte sauber anordnen */
-    .site-header__inner {
-        gap: 12px;
-        justify-content: space-between;
-    }
-
-    .site-header__cta {
-        position: static;
-        transform: none;
-        margin-left: auto;
-    }
-}
-
-/* Hero-Text für kleine Displays */
-@media (max-width:520px){
-    .hero__title {
-        font-size: 22px;
-        line-height: 1.3;
-    }
-    .hero__subtitle {
-        font-size: 15px;
-    }
 }
 
 @media (min-width:1600px){
