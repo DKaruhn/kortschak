@@ -2,7 +2,7 @@
     const PARTIALS = 'partials/';
     const INTRO_SEEN_KEY = 'vk@intro-shown-session';
 
-    const $ = (sel, root = document) => root.querySelector(sel);
+    const $  = (sel, root = document) => root.querySelector(sel);
     const $$ = (sel, root = document) => root.querySelectorAll(sel);
 
     async function inject(selectorOrKey, file){
@@ -73,9 +73,7 @@
         });
     }
 
-    /* ------ */
-    /* Loader */
-    /* ------ */
+    /* ------ Loader nur beim ersten Seitenaufruf pro Tab ------ */
     function addLoaderOnce(){
         const skip = sessionStorage.getItem(INTRO_SEEN_KEY) === '1';
         if (skip){
@@ -84,15 +82,14 @@
         }
 
         sessionStorage.setItem(INTRO_SEEN_KEY, '1');
-
         document.documentElement.classList.remove('is-ready');
 
         const el = document.createElement('div');
         el.id = 'app-loader';
         el.innerHTML = `
-            <div class="app-loader__inner" role="status" aria-label="Laden">
-                <img src="assets/img/logo/kortschak_icon.png" alt="" />
-            </div>`;
+      <div class="app-loader__inner" role="status" aria-label="Laden">
+        <img src="assets/img/logo/kortschak_icon.png" alt="" />
+      </div>`;
         document.body.appendChild(el);
 
         const MIN_SHOW = 800; // ms Mindestdauer sichtbar
