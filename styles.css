@@ -554,3 +554,39 @@ html.is-ready .hero__content > *:nth-child(4){ animation-delay:2.8s; }
 @media (min-width:1600px){
     .site-header__inner{ gap:84px; }
 }
+
+/* ================================
+   MOBILE COMFORT + FOOTER FIX
+   ================================ */
+
+@media (max-width:1000px){
+    :root{ --container:min(1200px,95%); }
+
+    .section{ padding:64px 0; }
+    .section--tight{ padding:48px 0; }
+    .site-footer{ padding:20px 0 0; }
+}
+
+/* Footer-Grid responsiv  */
+.site-footer .grid{ align-items:start; }
+@media (max-width:1000px){
+    .grid--3cols{ grid-template-columns:1fr 1fr; gap:22px; }
+}
+@media (max-width:640px){
+    .grid--3cols{ grid-template-columns:1fr; gap:18px; }
+
+    .footer__legal-inner{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+    .footer__links{
+        justify-content:center;
+    }
+}
+
+@media (max-width:640px){
+    .footer__title{ font-size:1.05rem; }
+    .footer__text{ line-height:1.7; }
+    .notdienst{ padding:36px 0 28px; }
+}
