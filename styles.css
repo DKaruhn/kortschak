@@ -361,6 +361,18 @@ html.is-ready .hero__content > *:nth-child(4){ animation-delay:2.8s; }
             linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.00)),
             url('assets/img/service_klima_split.png') center/cover no-repeat;
 }
+/* Bad page images */
+.hero--bad ~ .section img {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.hero--bad ~ .section img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 32px rgba(0,0,0,.18);
+}
+
 
 /* ------------------------------------- */
 /* Kontaktbereich */
