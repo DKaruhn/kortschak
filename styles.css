@@ -372,6 +372,20 @@ html.is-ready .hero__content > *:nth-child(4){ animation-delay:2.8s; }
     transform: scale(1.02);
     box-shadow: 0 12px 32px rgba(0,0,0,.18);
 }
+/* ----------------- */
+/* PV Page Images    */
+/* ----------------- */
+.hero--pv ~ .section img {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.hero--pv ~ .section img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 32px rgba(0,0,0,.18);
+}
+
 
 
 /* ------------------------------------- */
