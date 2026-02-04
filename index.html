@@ -3,76 +3,170 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="V.Kortschak Heizung • Sanitär • Klima – Moderne und umweltschonende Haustechnik in Nordstemmen." />
-    <title>V.Kortschak • Heizung · Sanitär · Klima</title>
+    <meta name="description" content="Müller Akustik & Trockenbau – Innenausbau, Akustiklösungen und Trockenbau aus einer Hand." />
+    <title>Müller Akustik & Trockenbau</title>
 
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="assets/img/logo/kortschak_icon.png" />
 </head>
 <body>
+<header class="site-header">
+    <div class="container site-header__inner">
+        <a class="brand" href="#home" aria-label="Startseite">
+            <span class="brand__mark">M</span>
+            <span class="brand__text">Akustik &amp; Trockenbau</span>
+        </a>
 
-<!-- Gemeinsamer Header -->
-<div data-include="header"></div>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+            <span></span><span></span><span></span>
+            <span class="sr-only">Menü öffnen</span>
+        </button>
+
+        <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation">
+            <a class="main-nav__link" href="#home">Home</a>
+            <a class="main-nav__link" href="#weg">Der Müller-Weg</a>
+            <a class="main-nav__link" href="#loesungen">Projekte</a>
+            <a class="main-nav__link" href="#kontakt">Kontakt</a>
+        </nav>
+
+        <a class="button button--light" href="#kontakt">Beratung</a>
+    </div>
+</header>
 
 <main id="home">
-    <!-- HERO -->
-    <section class="hero" aria-label="Startbereich">
-        <div class="hero__media" role="img" aria-label="Haus mit moderner Haustechnik"></div>
+    <section class="hero" aria-label="Hero">
+        <div class="hero__bg" role="img" aria-label="Moderne Architektur"></div>
+        <div class="hero__overlay"></div>
+
         <div class="container hero__content">
-            <p class="eyebrow">Willkommen bei V.Kortschak</p>
-            <h1 class="hero__title">Kompetente, moderne &amp; umweltschonende Haustechnik</h1>
-            <p class="hero__subtitle">
-                In Nordstemmen und Umgebung sind wir Ihr Partner für Heizung, Photovoltaik,
-                Lüftungsanlagen, Sanitär und Bad – zuverlässig aus einer Hand.
-            </p>
-            <div class="hero__actions">
-                <a class="button button--primary" href="#leistungen">Leistungen im Detail</a>
-                <a class="button button--ghost" href="ueber-uns.html">Mehr über uns</a>
+            <div class="hero__headline">
+                <p class="hero__eyebrow">Müller</p>
+                <h1 class="hero__title">MÜLLER</h1>
+                <p class="hero__subtitle">AKUSTIK &amp; TROCKENBAU</p>
+            </div>
+
+            <div class="hero__callout">
+                <button class="button button--primary">Projekt starten</button>
+                <p>Exzellenz in Form und Funktion. Ihr Meisterbetrieb für nachhaltigen Trockenbau und Raumakustik.</p>
+            </div>
+
+            <div class="hero__cards">
+                <article class="card">
+                    <p class="card__label">Projekte</p>
+                    <div class="card__media"></div>
+                </article>
+                <article class="card card--compact">
+                    <p class="card__label">Spezialisierung</p>
+                    <p class="card__text">Präzision</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="hero__scroll" aria-hidden="true">
+            <span></span>
+        </div>
+    </section>
+
+    <section id="weg" class="section section--light">
+        <div class="container">
+            <p class="section__eyebrow">Der Müller-Weg</p>
+            <div class="section__header">
+                <h2>Von der Vision zur Realität.</h2>
+                <p>Strukturierte Abläufe sorgen für ruhige Bauphasen, klare Kommunikation und messbar bessere Ergebnisse.</p>
+            </div>
+            <div class="process">
+                <div class="process__line" aria-hidden="true"></div>
+                <article class="process__step">
+                    <div class="process__badge">01</div>
+                    <div class="process__icon">💬</div>
+                    <h3>Beratung</h3>
+                    <p>Wir analysieren Ihre Räume und Akustik-Bedürfnisse direkt vor Ort.</p>
+                </article>
+                <article class="process__step">
+                    <div class="process__badge">02</div>
+                    <div class="process__icon">🛠️</div>
+                    <h3>Planung</h3>
+                    <p>Präzise CAD-Planung und Materialauswahl für optimale Ergebnisse.</p>
+                </article>
+                <article class="process__step">
+                    <div class="process__badge">03</div>
+                    <div class="process__icon">🔨</div>
+                    <h3>Montage</h3>
+                    <p>Fachgerechte Ausführung durch unsere erfahrenen Trockenbau-Meister.</p>
+                </article>
+                <article class="process__step">
+                    <div class="process__badge">04</div>
+                    <div class="process__icon">✅</div>
+                    <h3>Abnahme</h3>
+                    <p>Perfektes Finish und Übergabe Ihres neuen Raumgefühls.</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- BLURBS -->
-    <section class="section section--blurbs">
+    <section id="loesungen" class="section section--neutral">
         <div class="container">
-            <header class="section__header center">
-                <p class="eyebrow">V. Kortschak</p>
-                <h2 class="section__title">Wir sind erst zufrieden, wenn Sie es sind!</h2>
-                <p>Seit 2023 stehen wir Ihnen mit über 15 Jahren Erfahrung als zuverlässiger Partner für individuelle Fachberatung, Verkauf und Installation sowie Wartung und Reparatur im Bereich moderner Haustechnik zur Seite – Ihre Zufriedenheit ist unser Antrieb! Unser Unternehmen arbeitet mit namhaften Partnern zusammen und garantiert höchste Qualität und Service aus einer Hand.</p>
-            </header>
-
-
-            <div class="blurbs">
-                <article class="blurb"><div class="blurb__icon">💎</div><h3 class="blurb__title">Kompetent & qualitativ</h3><p class="blurb__text">Beratung, Planung, Modernisierung und Wartung – sauber und termintreu ausgeführt.</p></article>
-                <article class="blurb"><div class="blurb__icon">💡</div><h3 class="blurb__title">Modern ist meist besser</h3><p class="blurb__text">Neue Technik spart Energie und steigert Komfort – von Heizung bis Bad.</p></article>
-                <article class="blurb"><div class="blurb__icon">♻️</div><h3 class="blurb__title">Umweltschonend & nachhaltig</h3><p class="blurb__text">Effiziente Systeme und erneuerbare Energien für Ihr Zuhause.</p></article>
-                <article class="blurb"><div class="blurb__icon">💬</div><h3 class="blurb__title">Erfahren & individuell</h3><p class="blurb__text">Wir hören zu, beraten auf Augenhöhe und finden die passende Lösung.</p></article>
+            <div class="solutions__header">
+                <h2><span>Meisterhafte</span> Lösungen.</h2>
+                <div class="solutions__note">
+                    <span class="solutions__line"></span>
+                    Zertifizierte Präzision für höchste Ansprüche im Innenausbau.
+                </div>
             </div>
 
-            <div class="center">
-                <a class="button button--primary button--large" href="#kontakt">Jetzt beraten lassen</a>
+            <div class="solutions">
+                <article class="solution-card">
+                    <div class="solution-card__icon">🧱</div>
+                    <h3>Trockenbau</h3>
+                    <p>Moderne Wandsysteme und Raumaufteilungen für private und gewerbliche Projekte.</p>
+                    <a href="#kontakt" class="solution-card__link">Details →</a>
+                </article>
+                <article class="solution-card solution-card--dark">
+                    <div class="solution-card__icon">🔊</div>
+                    <h3>Akustikbau</h3>
+                    <p>Optimale Raumakustik durch innovative Deckensysteme und Wandabsorber.</p>
+                    <a href="#kontakt" class="solution-card__link">Details →</a>
+                </article>
+                <article class="solution-card">
+                    <div class="solution-card__icon">🛡️</div>
+                    <h3>Brandschutz</h3>
+                    <p>Zertifizierter baulicher Brandschutz für maximale Sicherheit in Ihrem Gebäude.</p>
+                    <a href="#kontakt" class="solution-card__link">Details →</a>
+                </article>
+                <article class="solution-card">
+                    <div class="solution-card__icon">🧩</div>
+                    <h3>Deckenkonstruktionen</h3>
+                    <p>Abgehängte Decken, Rasterdecken und exklusive Design-Lösungen.</p>
+                    <a href="#kontakt" class="solution-card__link">Details →</a>
+                </article>
+                <article class="solution-card">
+                    <div class="solution-card__icon">🌿</div>
+                    <h3>Dämmung &amp; Isolierung</h3>
+                    <p>Effiziente Wärme- und Schalldämmung für nachhaltiges Bauen.</p>
+                    <a href="#kontakt" class="solution-card__link">Details →</a>
+                </article>
+                <article class="solution-card">
+                    <div class="solution-card__icon">🏠</div>
+                    <h3>Innenausbau</h3>
+                    <p>Komplette Lösungen aus einer Hand – vom Rohbau bis zum bezugsfertigen Raum.</p>
+                    <a href="#kontakt" class="solution-card__link">Details →</a>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- LEISTUNGEN -->
-    <section id="leistungen" class="section section--tight">
+    <section id="kontakt" class="section section--dark">
         <div class="container">
-            <div class="cards">
-                <article class="card"><div class="card__media card__media--heizung"></div><div class="card__body"><h3 class="card__title">Heizung</h3><p class="card__text">Wärmepumpen, Gas- und Hybridlösungen inkl. hydraulischem Abgleich.</p><a class="card__link" href="heizung.html">→ Zu Heizung</a></div></article>
-                <article class="card"><div class="card__media card__media--pv"></div><div class="card__body"><h3 class="card__title">Photovoltaik</h3><p class="card__text">PV-Anlagen mit Speicher – sauberer Eigenstrom.</p><a class="card__link" href="pv.html">→ Zu Photovoltaik</a></div></article>
-                <article class="card"><div class="card__media card__media--bad"></div><div class="card__body"><h3 class="card__title">Bad</h3><p class="card__text">Vom Gäste-WC bis zum Wohlfühlbad – Planung & Montage.</p><a class="card__link" href="bad.html">→ Zu Bad</a></div></article>
-                <article class="card"><div class="card__media card__media--sanitaer"></div><div class="card__body"><h3 class="card__title">Sanitär</h3><p class="card__text">Trinkwasserinstallation, Enthärtung & Rohrsanierung.</p><a class="card__link" href="sanitaer.html">→ Zu Sanitär</a></div></article>
-                <article class="card"><div class="card__media card__media--klima"></div><div class="card__body"><h3 class="card__title">Klima</h3><p class="card__text">Split- und Multisplit-Anlagen – leise & effizient.</p><a class="card__link" href="klima.html">→ Zu Klima</a></div></article>
-            </div>
+            <h2>Kontakt</h2>
+            <p>Schreiben Sie uns: <a href="mailto:info@mueller-akustik.de">info@mueller-akustik.de</a></p>
         </div>
     </section>
 </main>
 
-<!-- Unterer Bereich für alle Seiten -->
-<div data-include="bottom"></div>
+<button class="chat-button" type="button" aria-label="Chat öffnen">
+    💬
+</button>
 
-<!-- Partials laden -->
-<script src="include.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>
